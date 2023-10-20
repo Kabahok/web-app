@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.egoravdeev.constants.StringConsts;
 import org.egoravdeev.controller.PostContoller;
 import org.egoravdeev.repository.PostRepository;
 import org.egoravdeev.service.PostService;
@@ -28,17 +29,17 @@ public class MainServlet extends HttpServlet {
             final var path = req.getRequestURI();
             final var method = req.getMethod();
 
-            if (method.equals("GET") && path.equals("/api/posts")) {
+            if (method.equals(StringConsts.METHOD_GET) && path.equals(StringConsts.API_POSTS)) {
                 controller.all(resp);
                 return;
-            } else if (method.equals("GET") && path.matches("/api/posts/\\d+")) {
+            } else if (method.equals(StringConsts.METHOD_GET) && path.matches(StringConsts.API_POSTS_ID)) {
                 final var id = Long.parseLong(path.substring(path.lastIndexOf("/") + 1));
                 controller.getById(id, resp);
                 return;
-            } else if (method.equals("POST") && path.equals("/api/posts")) {
+            } else if (method.equals(StringConsts.METHOD_POST) && path.equals(StringConsts.API_POSTS)) {
                 controller.save(req.getReader(), resp);
                 return;
-            } else if (method.equals("DELETE") && path.matches("/api/posts/\\d+")) {
+            } else if (method.equals(StringConsts.METHOD_DELETE) && path.matches(StringConsts.API_POSTS_ID)) {
                 final var id = Long.parseLong(path.substring(path.lastIndexOf("/") + 1));
                 controller.removeById(id, resp);
                 return;

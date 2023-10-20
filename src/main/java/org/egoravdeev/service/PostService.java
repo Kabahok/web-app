@@ -1,5 +1,6 @@
 package org.egoravdeev.service;
 
+import org.egoravdeev.constants.StringConsts;
 import org.egoravdeev.exeption.NotFoundExeption;
 import org.egoravdeev.model.Post;
 import org.egoravdeev.repository.PostRepository;
@@ -19,7 +20,7 @@ public class PostService {
 
     public Post getById(long id) {
         if (repository.getById(id).isEmpty()) {
-            throw new NotFoundExeption("Пост не найден");
+            throw new NotFoundExeption(StringConsts.NOT_FOUND_POST);
         } else {
             return repository.getById(id).get();
         }

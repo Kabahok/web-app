@@ -1,5 +1,6 @@
 package org.egoravdeev.repository;
 
+import org.egoravdeev.constants.StringConsts;
 import org.egoravdeev.exeption.NotFoundExeption;
 import org.egoravdeev.model.Post;
 
@@ -37,14 +38,14 @@ public class PostRepository {
             }
         }
 
-        throw new NotFoundExeption("Пост с таким id не найден");
+        throw new NotFoundExeption(StringConsts.NOT_FOUND_POST_WITH_ID);
     }
 
     public void removeById(long id) {
         if (posts.containsKey(id)) {
             posts.remove(id);
         } else {
-            throw new NotFoundExeption("Пост не найден, поэтому не может быть удален");
+            throw new NotFoundExeption(StringConsts.NOT_DELETE_POST);
         }
     }
 
