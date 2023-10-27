@@ -10,6 +10,7 @@ import org.egoravdeev.constants.StringConsts;
 import org.egoravdeev.controller.PostContoller;
 import org.egoravdeev.repository.PostRepository;
 import org.egoravdeev.service.PostService;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.io.IOException;
 
@@ -18,10 +19,11 @@ public class MainServlet extends HttpServlet {
     private PostContoller controller;
     @Override
     public void init() throws ServletException {
-        final var repository = new PostRepository();
-        final var service = new PostService(repository);
-        controller = new PostContoller(service);
+        final var context = new AnnotationConfigApplicationContext("org.egoravdeev");
+        controller = context.getBean(PostContoller.class);
     }
+
+    
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

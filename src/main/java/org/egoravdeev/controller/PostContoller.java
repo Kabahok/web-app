@@ -6,10 +6,12 @@ import org.egoravdeev.constants.StringConsts;
 import org.egoravdeev.exeption.NotFoundExeption;
 import org.egoravdeev.model.Post;
 import org.egoravdeev.service.PostService;
+import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 import java.io.Reader;
 
+@Controller
 public class PostContoller {
     private final PostService service;
 
