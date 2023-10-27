@@ -4,8 +4,10 @@ import org.egoravdeev.constants.StringConsts;
 import org.egoravdeev.exeption.NotFoundExeption;
 import org.egoravdeev.model.Post;
 import org.egoravdeev.repository.PostRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 
 public class PostService {
     private final PostRepository repository;
