@@ -23,7 +23,7 @@ public class MainServlet extends HttpServlet {
         controller = context.getBean(PostContoller.class);
     }
 
-    
+
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

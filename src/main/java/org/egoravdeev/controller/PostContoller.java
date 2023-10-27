@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import java.io.IOException;
 import java.io.Reader;
 
-@Controller
 public class PostContoller {
     private final PostService service;
 
